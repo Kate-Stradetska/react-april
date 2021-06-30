@@ -1,5 +1,7 @@
  import Users from './component/users/Users';
 import Menu from './component/menu/Menu';
+import Posts from './component/posts/Posts';
+
 
 export default function App() {
   return (
