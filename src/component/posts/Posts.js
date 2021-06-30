@@ -1,19 +1,7 @@
-import React,{ useEffect, useState } from "react";
-import Post from './Post';
-export default Posts;
-const Posts = () => {
-    const [posts, setPosts] = useState([]);
-
-    useEffect(()=> {
-        fetch('https://jsonplaceholder.typicode.com/posts')
-            .then(response => response.json())
-            .then(json => setPosts(json))
-    }, [])
+export default function (props) {
     return (
-        <div>
-            {posts.map(value => <Post id={value.id} title={value.title} body={value.body}/> )}
-        </div>
-    )
+    <div>
+        
+    </div>)
+    
 }
-
-
