@@ -1,5 +1,4 @@
 export default Post;
-
 const Post = ({id, title, body}) => {
     return(
         <div>
