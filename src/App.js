@@ -1,20 +1,20 @@
- import Users from './component/users/Users';
-import Menu from './component/menu/Menu';
+import {useEffect, useState} from 'react';
+import {getUsers} from './component/API';
+import Users from './component/users/Users';
 
 export default function App() {
-  return (
+    let [users, setUsers] = useState([]);
+
+    useEffect(()=> {
+        getUsers().then(value => setUsers(value.data));
+    }, [])
+    return (
     <div>
-      <Menu
-          pages={['users pages', 'comments pages', 'posts pages']}
-          classes={['xxx', 'yyy']}
-
-      />
-      <Users/>
-      <Menu
-          pages={['about', 'team', 'contacts us']}
-          classes={['ddd','eee']}
-      />
-
+        {
+            <Users items={users}/>
+        }
+        
     </div>
-  );
+    );
+    
 }
