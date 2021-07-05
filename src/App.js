@@ -1,8 +1,12 @@
 import {useEffect, useState} from 'react';
-import {getUsers} from './component/API';
+import {getUser, getUsers} from './component/API';
 import Users from './component/users/Users';
 
 export default function App() {
+    let [user, setUser] = useState(null);
+   let appFn = (id) => {
+       getUser(id).then(value => setUser(value.data));
+   }
     let [users, setUsers] = useState([]);
 
     useEffect(()=> {
@@ -10,10 +14,13 @@ export default function App() {
     }, [])
     return (
     <div>
+
+            <Users items={users} appFn={appFn}/>
+            <hr/>
         {
-            <Users items={users}/>
+            user && <div>{JSON.stringify(user)}</div>
         }
-        
+        <hr/>
     </div>
     );
     
